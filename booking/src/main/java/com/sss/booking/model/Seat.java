@@ -1,11 +1,12 @@
 package com.sss.booking.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+@Component
+@Scope("prototype")
 @Entity
 public class Seat {
 
@@ -14,8 +15,23 @@ public class Seat {
     private int seat_id;
 
     private String seat_name;
-    private int row;
-    private int column;
+    private int seatRow;
+    private int seatColumn;
+
+    @ManyToOne
+    @JoinColumn(name = "screenLayout_id")
+    private ScreenLayout screen;
+
+    public Seat() {
+    }
+
+    public ScreenLayout getScreen() {
+        return screen;
+    }
+
+    public void setScreen(ScreenLayout screen) {
+        this.screen = screen;
+    }
 
     public int getSeat_id() {
         return seat_id;
@@ -29,20 +45,20 @@ public class Seat {
         this.seat_name = seat_name;
     }
 
-    public int getRow() {
-        return row;
+    public int getSeatRow() {
+        return seatRow;
     }
 
-    public void setRow(int row) {
-        this.row = row;
+    public void setSeatRow(int seatRow) {
+        this.seatRow = seatRow;
     }
 
-    public int getColumn() {
-        return column;
+    public int getSeatColumn() {
+        return seatColumn;
     }
 
-    public void setColumn(int column) {
-        this.column = column;
+    public void setSeatColumn(int seatColumn) {
+        this.seatColumn = seatColumn;
     }
 
     @Override
@@ -50,8 +66,8 @@ public class Seat {
         return "Seat{" +
                 "seat_id=" + seat_id +
                 ", seat_name='" + seat_name + '\'' +
-                ", row=" + row +
-                ", column=" + column +
+                ", seatRow=" + seatRow +
+                ", seatColumn=" + seatColumn +
                 '}';
     }
 }

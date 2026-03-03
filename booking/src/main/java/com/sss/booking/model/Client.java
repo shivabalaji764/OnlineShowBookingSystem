@@ -1,12 +1,14 @@
 package com.sss.booking.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
+@Component
+@Scope("prototype")
 @Entity
 public class Client {
 
@@ -15,11 +17,22 @@ public class Client {
     private int client_id;
 
     private String name;
+    private String password;
     private String email;
-    private int mobile;
-    private ArrayList<Theater> theaters;
-    private ArrayList<ScreenLayout> layouts;
+    private String mobile;
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    private List<Theater> theaters;
 
+    public Client() {
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public int getClient_id() {
         return client_id;
@@ -41,28 +54,20 @@ public class Client {
         this.email = email;
     }
 
-    public int getMobile() {
+    public String getMobile() {
         return mobile;
     }
 
-    public void setMobile(int mobile) {
+    public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
-    public ArrayList<Theater> getTheaters() {
+    public List<Theater> getTheaters() {
         return theaters;
     }
 
     public void setTheaters(ArrayList<Theater> theaters) {
         this.theaters = theaters;
-    }
-
-    public ArrayList<ScreenLayout> getLayouts() {
-        return layouts;
-    }
-
-    public void setLayouts(ArrayList<ScreenLayout> layouts) {
-        this.layouts = layouts;
     }
 
     @Override
@@ -73,7 +78,6 @@ public class Client {
                 ", email='" + email + '\'' +
                 ", mobile=" + mobile +
                 ", theaters=" + theaters +
-                ", layouts=" + layouts +
                 '}';
     }
 }

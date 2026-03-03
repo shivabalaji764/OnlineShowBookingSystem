@@ -1,12 +1,14 @@
 package com.sss.booking.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
+@Component
+@Scope("prototype")
 @Entity
 public class Theater {
 
@@ -19,7 +21,23 @@ public class Theater {
     private double longitude;
 
     private int screen_count;
-    private ArrayList<ScreenLayout>  screens;
+    @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
+    private List<ScreenLayout> screens;
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private Client client;
+
+    public Theater() {
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 
     public int getTheater_id() {
         return theater_id;
@@ -61,7 +79,7 @@ public class Theater {
         this.screen_count = screen_count;
     }
 
-    public ArrayList<ScreenLayout> getScreens() {
+    public List<ScreenLayout> getScreens() {
         return screens;
     }
 
