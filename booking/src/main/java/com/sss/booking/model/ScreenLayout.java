@@ -1,6 +1,8 @@
 package com.sss.booking.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import net.minidev.json.annotate.JsonIgnore;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -25,6 +27,7 @@ public class ScreenLayout {
 
     @ManyToOne
     @JoinColumn(name = "theater_id")
+    @JsonIgnoreProperties("screens")
     private Theater theater;
 
     public ScreenLayout() {

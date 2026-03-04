@@ -1,7 +1,6 @@
 package com.sss.booking.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -9,42 +8,26 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope("prototype")
 @Entity
-public class Seat {
+public class ShowSeats {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int seat_id;
+    private int show_seat_id;
 
-    private String seat_name;
     private int seatRow;
     private int seatColumn;
+    private int status;
 
     @ManyToOne
-    @JoinColumn(name = "screenLayout_id")
-    @JsonIgnoreProperties("seats")
-    private ScreenLayout screen;
+    @JoinColumn(name = "show_id")
+    private ShowModel showModel;
 
-    public Seat() {
+    public int getShow_seat_id() {
+        return show_seat_id;
     }
 
-    public ScreenLayout getScreen() {
-        return screen;
-    }
-
-    public void setScreen(ScreenLayout screen) {
-        this.screen = screen;
-    }
-
-    public int getSeat_id() {
-        return seat_id;
-    }
-
-    public String getSeat_name() {
-        return seat_name;
-    }
-
-    public void setSeat_name(String seat_name) {
-        this.seat_name = seat_name;
+    public void setShow_seat_id(int show_seat_id) {
+        this.show_seat_id = show_seat_id;
     }
 
     public int getSeatRow() {
@@ -63,13 +46,29 @@ public class Seat {
         this.seatColumn = seatColumn;
     }
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public ShowModel getShowModel() {
+        return showModel;
+    }
+
+    public void setShowModel(ShowModel showModel) {
+        this.showModel = showModel;
+    }
+
     @Override
     public String toString() {
-        return "Seat{" +
-                "seat_id=" + seat_id +
-                ", seat_name='" + seat_name + '\'' +
+        return "ShowSeats{" +
+                "show_seat_id=" + show_seat_id +
                 ", seatRow=" + seatRow +
                 ", seatColumn=" + seatColumn +
+                ", status=" + status +
                 '}';
     }
 }

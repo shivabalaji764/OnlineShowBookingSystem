@@ -1,10 +1,10 @@
 package com.sss.booking.model;
 
 import jakarta.persistence.*;
+import net.minidev.json.annotate.JsonIgnore;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -14,7 +14,7 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int client_id;
+    private int clientId;
 
     private String name;
     private String password;
@@ -22,6 +22,9 @@ public class Client {
     private String mobile;
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private List<Theater> theaters;
+
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+    private List<ShowModel> shows;
 
     public Client() {
     }
@@ -34,8 +37,8 @@ public class Client {
         this.password = password;
     }
 
-    public int getClient_id() {
-        return client_id;
+    public int getClientId() {
+        return clientId;
     }
 
     public String getName() {
@@ -66,18 +69,28 @@ public class Client {
         return theaters;
     }
 
-    public void setTheaters(ArrayList<Theater> theaters) {
+    public void setTheaters(List<Theater> theaters) {
         this.theaters = theaters;
+    }
+
+    public List<ShowModel> getShows() {
+        return shows;
+    }
+
+    public void setShows(List<ShowModel> shows) {
+        this.shows = shows;
     }
 
     @Override
     public String toString() {
         return "Client{" +
-                "client_id=" + client_id +
+                "client_id=" + clientId +
                 ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", mobile=" + mobile +
+                ", mobile='" + mobile + '\'' +
                 ", theaters=" + theaters +
+                ", shows=" + shows +
                 '}';
     }
 }
