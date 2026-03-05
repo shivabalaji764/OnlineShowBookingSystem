@@ -43,4 +43,9 @@ public class ClientService {
     public List<ShowModel> getShows(Integer clientId) {
         return showRepository.findAllByClientClientId(clientId);
     }
+
+    public Client getClient(Integer clientId) {
+        Optional<Client> client = clientRepository.findById(clientId);
+        return client.orElse(null);
+    }
 }

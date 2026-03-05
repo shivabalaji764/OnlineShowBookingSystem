@@ -1,6 +1,7 @@
 package com.sss.booking.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -19,7 +20,8 @@ public class ShowSeats {
     private int status;
 
     @ManyToOne
-    @JoinColumn(name = "show_id")
+    @JoinColumn(name = "showId")
+    @com.fasterxml.jackson.annotation.JsonIgnore
     private ShowModel showModel;
 
     public int getShow_seat_id() {

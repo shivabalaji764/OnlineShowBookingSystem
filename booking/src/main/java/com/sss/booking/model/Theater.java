@@ -29,7 +29,7 @@ public class Theater {
 
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties("theaters")
+    @com.fasterxml.jackson.annotation.JsonIgnore
     private Client client;
 
     public Client getClient() {

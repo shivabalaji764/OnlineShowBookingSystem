@@ -26,12 +26,11 @@ public class ShowModel {
     private LocalTime showLength;
 
     @OneToMany(mappedBy = "showModel", cascade = CascadeType.ALL)
-    @JsonIgnore
     private List<ShowSeats> seats;
 
     @ManyToOne
     @JoinColumn(name="clientId")
-    @JsonIgnoreProperties("shows")
+    @com.fasterxml.jackson.annotation.JsonIgnore
     private Client client;
 
 

@@ -21,7 +21,7 @@ public class Seat {
 
     @ManyToOne
     @JoinColumn(name = "screenLayout_id")
-    @JsonIgnoreProperties("seats")
+    @com.fasterxml.jackson.annotation.JsonIgnore
     private ScreenLayout screen;
 
     public int getSeatId() {
