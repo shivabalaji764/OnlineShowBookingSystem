@@ -16,7 +16,8 @@ public class Theater {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int theater_id;
+    private int theaterId;
+    private String theaterName;
 
     private String address;
     private double latitude;
@@ -27,12 +28,9 @@ public class Theater {
     private List<ScreenLayout> screens;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "clientId")
     @JsonIgnoreProperties("theaters")
     private Client client;
-
-    public Theater() {
-    }
 
     public Client getClient() {
         return client;
@@ -42,12 +40,20 @@ public class Theater {
         this.client = client;
     }
 
-    public int getTheater_id() {
-        return theater_id;
+    public int getTheaterId() {
+        return theaterId;
     }
 
-    public void setTheater_id(int theater_id) {
-        this.theater_id = theater_id;
+    public void setTheaterId(int theaterId) {
+        this.theaterId = theaterId;
+    }
+
+    public String getTheaterName() {
+        return theaterName;
+    }
+
+    public void setTheaterName(String theaterName) {
+        this.theaterName = theaterName;
     }
 
     public String getAddress() {
@@ -86,14 +92,15 @@ public class Theater {
         return screens;
     }
 
-    public void setScreens(ArrayList<ScreenLayout> screens) {
+    public void setScreens(List<ScreenLayout> screens) {
         this.screens = screens;
     }
 
     @Override
     public String toString() {
         return "Theater{" +
-                "theater_id=" + theater_id +
+                "theaterId=" + theaterId +
+                ", theaterName='" + theaterName + '\'' +
                 ", address='" + address + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +

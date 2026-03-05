@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function Shows(){
     const [shows, setShows] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(()=>{
         fetch("http://localhost:5431/clients/shows",{
@@ -29,16 +32,17 @@ function Shows(){
 
                 <tbody>
                     {shows.map((show)=>(
-                        <tr key={show.show_id}>
-                            <td>{show.show_name}</td>
-                            <td>{show.theater_id}</td>
-                            <td>{show.screenLayout_id}</td>
-                            <td>{show.show_date_and_time}</td>
-                            <td>{show.show_length}</td>
+                        <tr key={show.showId}>
+                            <td>{show.showName}</td>
+                            <td>{show.theaterId}</td>
+                            <td>{show.screenLayoutId}</td>
+                            <td>{show.showDateAndTime}</td>
+                            <td>{show.showLength}</td>
                         </tr>
                     ))}
                 </tbody>
             </table>
+            <button type = "submit" onClick={()=>navigate("/create")}>Create a new show</button>
         </div>
     );
 }

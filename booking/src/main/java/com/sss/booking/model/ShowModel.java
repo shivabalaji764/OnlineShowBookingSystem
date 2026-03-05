@@ -17,71 +17,70 @@ public class ShowModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long show_id;
+    private long showId;
 
-    private String show_name;
-    private int theater_id;
-    private int screenLayout_id;
-    private LocalDateTime show_date_and_time;
-    private LocalTime show_length;
+    private String showName;
+    private int theaterId;
+    private int screenLayoutId;
+    private LocalDateTime showDateAndTime;
+    private LocalTime showLength;
 
     @OneToMany(mappedBy = "showModel", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<ShowSeats> seats;
 
     @ManyToOne
-    @JoinColumn(name="client_id")
+    @JoinColumn(name="clientId")
     @JsonIgnoreProperties("shows")
     private Client client;
 
 
-
-    public long getShow_id() {
-        return show_id;
+    public long getShowId() {
+        return showId;
     }
 
-    public void setShow_id(long show_id) {
-        this.show_id = show_id;
+    public void setShowId(long showId) {
+        this.showId = showId;
     }
 
-    public String getShow_name() {
-        return show_name;
+    public String getShowName() {
+        return showName;
     }
 
-    public void setShow_name(String show_name) {
-        this.show_name = show_name;
+    public void setShowName(String showName) {
+        this.showName = showName;
     }
 
-    public int getTheater_id() {
-        return theater_id;
+    public int getTheaterId() {
+        return theaterId;
     }
 
-    public void setTheater_id(int theater_id) {
-        this.theater_id = theater_id;
+    public void setTheaterId(int theaterId) {
+        this.theaterId = theaterId;
     }
 
-    public int getScreenLayout_id() {
-        return screenLayout_id;
+    public int getScreenLayoutId() {
+        return screenLayoutId;
     }
 
-    public void setScreenLayout_id(int screenLayout_id) {
-        this.screenLayout_id = screenLayout_id;
+    public void setScreenLayoutId(int screenLayoutId) {
+        this.screenLayoutId = screenLayoutId;
     }
 
-    public LocalDateTime getShow_date_and_time() {
-        return show_date_and_time;
+    public LocalDateTime getShowDateAndTime() {
+        return showDateAndTime;
     }
 
-    public void setShow_date_and_time(LocalDateTime show_date_and_time) {
-        this.show_date_and_time = show_date_and_time;
+    public void setShowDateAndTime(LocalDateTime showDateAndTime) {
+        this.showDateAndTime = showDateAndTime;
     }
 
-    public LocalTime getShow_length() {
-        return show_length;
+    public LocalTime getShowLength() {
+        return showLength;
     }
 
-    public void setShow_length(LocalTime show_length) {
-        this.show_length = show_length;
+    public void setShowLength(LocalTime showLength) {
+        this.showLength = showLength;
     }
 
     public List<ShowSeats> getSeats() {
@@ -103,13 +102,14 @@ public class ShowModel {
     @Override
     public String toString() {
         return "ShowModel{" +
-                "show_id=" + show_id +
-                ", show_name='" + show_name + '\'' +
-                ", theater_id=" + theater_id +
-                ", screenLayout_id=" + screenLayout_id +
-                ", show_date_and_time=" + show_date_and_time +
-                ", show_length=" + show_length +
+                "showId=" + showId +
+                ", showName='" + showName + '\'' +
+                ", theaterId=" + theaterId +
+                ", screenLayoutId=" + screenLayoutId +
+                ", showDateAndTime=" + showDateAndTime +
+                ", showLength=" + showLength +
                 ", seats=" + seats +
+                ", client=" + client +
                 '}';
     }
 }

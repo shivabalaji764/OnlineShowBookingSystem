@@ -24,6 +24,7 @@ function Login() {
 
         if (response.ok) {
             alert("Login successful!");
+            navigate('/shows');
         } else {
             alert("Invalid credentials");
         }

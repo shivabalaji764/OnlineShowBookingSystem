@@ -26,11 +26,10 @@ public class ClientController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody Client request, HttpSession session){
-        int client_id = clientService.login(request.getEmail(), request.getPassword());
+        int clientId = clientService.login(request.getEmail(), request.getPassword());
 
-        if(client_id!=-1){
-            session.setAttribute("client_id", client_id);
-            System.out.println(session.getAttribute("client_id"));
+        if(clientId!=-1){
+            session.setAttribute("clientId", clientId);
             return ResponseEntity.ok("Login successful");
         }else{
             return ResponseEntity.status(401)
@@ -51,13 +50,11 @@ public class ClientController {
 
     @GetMapping("/shows")
     public ResponseEntity<List<ShowModel>> getShows(HttpSession session){
-        Integer client_id = (Integer)session.getAttribute("client_id");
+        Integer client_id = (Integer)session.getAttribute("clientId");
         if(client_id==null){
-            System.out.println(401+" "+client_id);
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
         List<ShowModel> shows = clientService.getShows(client_id);
-        System.out.println(shows);
         return ResponseEntity.ok(shows);
     }
 }

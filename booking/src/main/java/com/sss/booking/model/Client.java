@@ -90,7 +90,6 @@ public class Client {
                 ", email='" + email + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", theaters=" + theaters +
-                ", shows=" + shows +
                 '}';
     }
 }

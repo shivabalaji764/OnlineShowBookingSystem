@@ -16,49 +16,42 @@ public class ScreenLayout {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int screenLayout_id;
+    private int screenLayoutId;
 
-    private String screen_type;
-    private int base_price;
+    private String screenType;
+    private int basePrice;
     private int rows;
     private int columns;
     @OneToMany(mappedBy = "screen", cascade = CascadeType.ALL)
     private List<Seat> seats;
 
     @ManyToOne
-    @JoinColumn(name = "theater_id")
+    @JoinColumn(name = "theaterId")
     @JsonIgnoreProperties("screens")
     private Theater theater;
 
-    public ScreenLayout() {
+    public int getScreenLayoutId() {
+        return screenLayoutId;
     }
 
-    public Theater getTheater() {
-        return theater;
+    public void setScreenLayoutId(int screenLayoutId) {
+        this.screenLayoutId = screenLayoutId;
     }
 
-    public void setTheater(Theater theater) {
-        this.theater = theater;
+    public String getScreenType() {
+        return screenType;
     }
 
-    public int getScreenLayout_id() {
-        return screenLayout_id;
+    public void setScreenType(String screenType) {
+        this.screenType = screenType;
     }
 
-    public String getScreen_type() {
-        return screen_type;
+    public int getBasePrice() {
+        return basePrice;
     }
 
-    public void setScreen_type(String screen_type) {
-        this.screen_type = screen_type;
-    }
-
-    public int getBase_price() {
-        return base_price;
-    }
-
-    public void setBase_price(int base_price) {
-        this.base_price = base_price;
+    public void setBasePrice(int basePrice) {
+        this.basePrice = basePrice;
     }
 
     public int getRows() {
@@ -81,16 +74,24 @@ public class ScreenLayout {
         return seats;
     }
 
-    public void setSeats(ArrayList<Seat> seats) {
+    public void setSeats(List<Seat> seats) {
         this.seats = seats;
+    }
+
+    public Theater getTheater() {
+        return theater;
+    }
+
+    public void setTheater(Theater theater) {
+        this.theater = theater;
     }
 
     @Override
     public String toString() {
         return "ScreenLayout{" +
-                "screenLayout_id=" + screenLayout_id +
-                ", screen_type='" + screen_type + '\'' +
-                ", base_price=" + base_price +
+                "screenLayoutId=" + screenLayoutId +
+                ", screenType='" + screenType + '\'' +
+                ", basePrice=" + basePrice +
                 ", rows=" + rows +
                 ", columns=" + columns +
                 ", seats=" + seats +

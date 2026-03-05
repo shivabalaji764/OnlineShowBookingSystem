@@ -13,9 +13,9 @@ public class Seat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int seat_id;
+    private int seatId;
 
-    private String seat_name;
+    private String seatName;
     private int seatRow;
     private int seatColumn;
 
@@ -24,27 +24,20 @@ public class Seat {
     @JsonIgnoreProperties("seats")
     private ScreenLayout screen;
 
-    public Seat() {
+    public int getSeatId() {
+        return seatId;
     }
 
-    public ScreenLayout getScreen() {
-        return screen;
+    public void setSeatId(int seatId) {
+        this.seatId = seatId;
     }
 
-    public void setScreen(ScreenLayout screen) {
-        this.screen = screen;
+    public String getSeatName() {
+        return seatName;
     }
 
-    public int getSeat_id() {
-        return seat_id;
-    }
-
-    public String getSeat_name() {
-        return seat_name;
-    }
-
-    public void setSeat_name(String seat_name) {
-        this.seat_name = seat_name;
+    public void setSeatName(String seatName) {
+        this.seatName = seatName;
     }
 
     public int getSeatRow() {
@@ -63,11 +56,19 @@ public class Seat {
         this.seatColumn = seatColumn;
     }
 
+    public ScreenLayout getScreen() {
+        return screen;
+    }
+
+    public void setScreen(ScreenLayout screen) {
+        this.screen = screen;
+    }
+
     @Override
     public String toString() {
         return "Seat{" +
-                "seat_id=" + seat_id +
-                ", seat_name='" + seat_name + '\'' +
+                "seatId=" + seatId +
+                ", seatName='" + seatName + '\'' +
                 ", seatRow=" + seatRow +
                 ", seatColumn=" + seatColumn +
                 '}';
