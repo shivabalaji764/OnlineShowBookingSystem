@@ -19,6 +19,7 @@ public class ScreenLayout {
     private int screenLayoutId;
 
     private String screenType;
+    private int screenNo;
     private int basePrice;
     private int rows;
     private int columns;
@@ -86,11 +87,20 @@ public class ScreenLayout {
         this.theater = theater;
     }
 
+    public int getScreenNo() {
+        return screenNo;
+    }
+
+    public void setScreenNo(int screenNo) {
+        this.screenNo = screenNo;
+    }
+
     @Override
     public String toString() {
         return "ScreenLayout{" +
                 "screenLayoutId=" + screenLayoutId +
                 ", screenType='" + screenType + '\'' +
+                ", screenNo=" + screenNo +
                 ", basePrice=" + basePrice +
                 ", rows=" + rows +
                 ", columns=" + columns +

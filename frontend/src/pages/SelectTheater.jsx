@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function SelectTheater(){
     const [theaters, setTheaters] = useState([]);
@@ -8,7 +8,7 @@ export default function SelectTheater(){
     const [longitude, setLongitude] = useState(0.0);
     const [latitude, setLatitude] = useState(0.0);
     const [address, setAddress] = useState("");
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(()=>{
         fetch(
@@ -31,20 +31,21 @@ export default function SelectTheater(){
             },
             credentials:"include",
             body: JSON.stringify({
-                theaterName: selectedTheater
+                theaterId: selectedTheater
             })
         })
 
         if(response.ok){
             alert("done");
+            navigate('/selectscreen');
         }else{
             alert("an error occured");
         }
     }
-
+    
     const handleNewTheater = async function(e){
         e.preventDefault
-
+        
         const response = await fetch("http://localhost:5431/theaters/addnew",{
             method:"POST",
             headers:{
@@ -58,9 +59,10 @@ export default function SelectTheater(){
                 address: address
             })
         });
-
+        
         if(response.ok){
             alert("done");
+            navigate('/selectscreen');
         }else{
             alert("something went wrong");
         }

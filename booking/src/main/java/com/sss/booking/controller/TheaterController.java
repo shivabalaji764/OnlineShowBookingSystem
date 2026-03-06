@@ -37,6 +37,7 @@ public class TheaterController {
     @PostMapping("/set")
     public ResponseEntity<String> setTheater(@RequestBody Theater request, HttpSession session){
         session.setAttribute("theaterId",request.getTheaterId());
+        System.out.println(request);
         return ResponseEntity.ok("added");
     }
 
@@ -50,7 +51,8 @@ public class TheaterController {
         if(theaterId==-1){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Unauthorised");
         }
+        System.out.println(theaterId);
         session.setAttribute("theaterId", theaterId);
-        return ResponseEntity.ok("added successfully");
+        return ResponseEntity.ok("Added Successfully");
     }
 }

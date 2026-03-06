@@ -57,4 +57,8 @@ public class ClientController {
         List<ShowModel> shows = clientService.getShows(client_id);
         return ResponseEntity.ok(shows);
     }
+
+    @RestController
+    public class ScreenController {
+    }
 }
