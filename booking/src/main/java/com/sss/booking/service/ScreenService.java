@@ -4,7 +4,6 @@ import com.sss.booking.model.ScreenLayout;
 import com.sss.booking.model.Theater;
 import com.sss.booking.repository.ScreenRepository;
 import com.sss.booking.repository.TheaterRepository;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,5 +39,10 @@ public class ScreenService {
         screenRepository.save(screen);
 
         return screen.getScreenLayoutId();
+    }
+
+    public ScreenLayout getScreen(Integer screenLayoutId) {
+        Optional<ScreenLayout> screenLayout = screenRepository.findById(screenLayoutId);
+        return screenLayout.orElse(null);
     }
 }

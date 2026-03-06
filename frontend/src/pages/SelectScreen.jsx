@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function SelectScreen(){
     const [screens, setScreens] = useState([]);
@@ -8,6 +9,7 @@ export default function SelectScreen(){
     const [basePrice, setBasePrice] = useState(0.0);
     const [rowsCount, setRowsCount] = useState(0);
     const [columnsCount, setColumnsCount] = useState(0);
+    const navigate = useNavigate();
 
     useEffect(()=>{
         fetch(
@@ -37,6 +39,7 @@ export default function SelectScreen(){
 
         if(response.ok){
             alert("done")
+            navigate("/finalizeshow");
         }else{
             alert("something went wrong")
         }
@@ -62,6 +65,7 @@ export default function SelectScreen(){
 
         if(response.ok){
             alert("done");
+            navigate("/addseats")
         }else{
             alert("Something went wrong");
         }

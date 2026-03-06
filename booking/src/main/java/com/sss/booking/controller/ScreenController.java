@@ -55,4 +55,19 @@ public class ScreenController {
         return ResponseEntity.ok("added successfully");
     }
 
+
+    @GetMapping("/getdimensions")
+    public ResponseEntity<ScreenLayout> getDimensions(HttpSession session){
+        Integer screenLayoutId = (Integer) session.getAttribute("screenLayoutId");
+        if(screenLayoutId==null){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
+        ScreenLayout screen = screenService.getScreen(screenLayoutId);
+
+        if(screen==null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }
+
+        return ResponseEntity.ok(screen);
+    }
 }
