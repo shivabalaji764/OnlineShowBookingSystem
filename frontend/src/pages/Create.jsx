@@ -24,7 +24,7 @@ function Create(){
             },
             credentials:"include",
             body: JSON.stringify({
-                show_name:selectedShow
+                showName:selectedShow
             })
         });
 

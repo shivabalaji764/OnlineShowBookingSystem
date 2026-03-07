@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function AddSeats(){
     const [selectedMatrix, setSelectedMatrix] = useState([[]]);
+    const navigate = useNavigate();
 
     useEffect(()=>{
         fetch(
@@ -45,6 +47,7 @@ export default function AddSeats(){
 
         if(response.ok){
             alert("done")
+            navigate('/finalizeshow');
         }else{
             alert("something went wrong");
         }

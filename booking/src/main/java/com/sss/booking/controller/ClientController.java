@@ -30,6 +30,7 @@ public class ClientController {
 
         if(clientId!=-1){
             session.setAttribute("clientId", clientId);
+            System.out.println(clientId);
             return ResponseEntity.ok("Login successful");
         }else{
             return ResponseEntity.status(401)

@@ -6,6 +6,7 @@ import Create from "./pages/Create";
 import SelectTheater from "./pages/SelectTheater";
 import SelectScreen from "./pages/SelectScreen";
 import AddSeats from "./pages/AddSeats";
+import AddShow from "./pages/AddShow";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/selecttheater" element={<SelectTheater />} />
         <Route path="/selectscreen" element={<SelectScreen />} />
         <Route path="/addseats" element={<AddSeats />} />
+        <Route path="/finalizeshow" element={<AddShow />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,7 +1,6 @@
 package com.sss.booking.model;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -9,11 +8,11 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope("prototype")
 @Entity
-public class ShowSeats {
+public class ShowSeat {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int show_seat_id;
+    private int showSeatId;
 
     private int seatRow;
     private int seatColumn;
@@ -24,12 +23,12 @@ public class ShowSeats {
     @com.fasterxml.jackson.annotation.JsonIgnore
     private ShowModel showModel;
 
-    public int getShow_seat_id() {
-        return show_seat_id;
+    public int getShowSeatId() {
+        return showSeatId;
     }
 
-    public void setShow_seat_id(int show_seat_id) {
-        this.show_seat_id = show_seat_id;
+    public void setShowSeatId(int showSeatId) {
+        this.showSeatId = showSeatId;
     }
 
     public int getSeatRow() {
@@ -67,7 +66,7 @@ public class ShowSeats {
     @Override
     public String toString() {
         return "ShowSeats{" +
-                "show_seat_id=" + show_seat_id +
+                "showSeatId=" + showSeatId +
                 ", seatRow=" + seatRow +
                 ", seatColumn=" + seatColumn +
                 ", status=" + status +
