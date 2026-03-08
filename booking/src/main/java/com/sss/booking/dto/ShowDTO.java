@@ -11,16 +11,8 @@ public class ShowDTO {
         return showTime;
     }
 
-    public void setShowTime(LocalDateTime showTime) {
-        this.showTime = showTime;
-    }
-
     public LocalTime getShowLength() {
         return showLength;
-    }
-
-    public void setShowLength(LocalTime showLength) {
-        this.showLength = showLength;
     }
 
     @Override

@@ -1,7 +1,6 @@
 package com.sss.booking.service;
 
 
-import com.sss.booking.dto.SeatDTO;
 import com.sss.booking.model.ScreenLayout;
 import com.sss.booking.model.Seat;
 import com.sss.booking.repository.SeatRepository;

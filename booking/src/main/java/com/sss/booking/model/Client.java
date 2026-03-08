@@ -1,14 +1,10 @@
 package com.sss.booking.model;
 
 import jakarta.persistence.*;
-import net.minidev.json.annotate.JsonIgnore;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
-@Scope("prototype")
+
 @Entity
 public class Client {
 

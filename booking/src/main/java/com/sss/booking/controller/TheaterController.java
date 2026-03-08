@@ -1,10 +1,9 @@
 package com.sss.booking.controller;
 
 
-import com.sss.booking.model.ShowModel;
+
 import com.sss.booking.model.Theater;
 import com.sss.booking.service.TheaterService;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

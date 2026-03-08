@@ -9,10 +9,6 @@ public class SeatDTO {
         return selectedSeats;
     }
 
-    public void setSelectedSeats(List<List<Integer>> selectedSeats) {
-        this.selectedSeats = selectedSeats;
-    }
-
     @Override
     public String toString() {
         return "SeatDTO{" +
