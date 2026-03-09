@@ -23,6 +23,11 @@ public class ShowSeat {
     @com.fasterxml.jackson.annotation.JsonIgnore
     private ShowModel showModel;
 
+    @ManyToOne
+    @JoinColumn(name = "showSeats")
+    @com.fasterxml.jackson.annotation.JsonIgnore
+    private Booking booking;
+
     public int getShowSeatId() {
         return showSeatId;
     }

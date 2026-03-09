@@ -31,6 +31,8 @@ public class ShowModel {
     @com.fasterxml.jackson.annotation.JsonIgnore
     private Client client;
 
+    @OneToMany(mappedBy = "show")
+    private List<Booking> bookings;
 
     public long getShowId() {
         return showId;
@@ -96,6 +98,15 @@ public class ShowModel {
         this.client = client;
     }
 
+    public List<Booking> getBookings() {
+        return bookings;
+    }
+
+    public void setBookings(List<Booking> bookings) {
+        this.bookings = bookings;
+    }
+
+
     @Override
     public String toString() {
         return "ShowModel{" +
@@ -106,7 +117,7 @@ public class ShowModel {
                 ", showDateAndTime=" + showDateAndTime +
                 ", showLength=" + showLength +
                 ", seats=" + seats +
-                ", client=" + client +
+                ", bookings=" + bookings +
                 '}';
     }
 }
