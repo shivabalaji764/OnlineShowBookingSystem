@@ -20,4 +20,9 @@ public interface ShowRepository extends JpaRepository<ShowModel, Long> {
     )
     """)
     List<ShowModel> findUniqueShows();
+
+    @Query(value = "SELECT DISTINCT s.showName FROM ShowModel s")
+    List<String> getUniqueShowNames();
+
+    List<ShowModel> findByShowName(String showName);
 }

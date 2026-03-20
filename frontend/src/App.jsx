@@ -7,14 +7,22 @@ import SelectTheater from "./pages/SelectTheater";
 import SelectScreen from "./pages/SelectScreen";
 import AddSeats from "./pages/AddSeats";
 import AddShow from "./pages/AddShow";
+import UserLogin from "./pages/UserLogin";
+import UserSignup from "./pages/UserSignup";
+import Home from "./pages/Home";
+import Theater from "./pages/Theaters";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/shows" element={<Shows />} />
+        <Route path="/" element={<UserLogin />} />
+        <Route path="/signup" element={<UserSignup />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/theaters" element={<Theater />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/clientsignup" element={<Signup />} />
+        <Route path="/clientshows" element={<Shows />} />
         <Route path="/create" element={<Create />} />
         <Route path="/selecttheater" element={<SelectTheater />} />
         <Route path="/selectscreen" element={<SelectScreen />} />

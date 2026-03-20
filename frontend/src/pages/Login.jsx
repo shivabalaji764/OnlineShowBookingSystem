@@ -24,7 +24,7 @@ function Login() {
 
         if (response.ok) {
             alert("Login successful!");
-            navigate('/shows');
+            navigate('/clientshows');
         } else {
             alert("Invalid credentials");
         }
@@ -60,7 +60,7 @@ function Login() {
                 <button type="submit">Login</button>
                 <br />
 
-                <button type = "button" onClick={()=>navigate("/signup")}>Go to Signup</button>
+                <button type = "button" onClick={()=>navigate("/clientsignup")}>Go to Signup</button>
             </form>
         </div>
     );

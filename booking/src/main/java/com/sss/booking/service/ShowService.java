@@ -1,9 +1,7 @@
 package com.sss.booking.service;
 
-import com.sss.booking.model.Client;
-import com.sss.booking.model.Seat;
-import com.sss.booking.model.ShowModel;
-import com.sss.booking.model.ShowSeat;
+import com.sss.booking.dto.TheaterDTO;
+import com.sss.booking.model.*;
 import com.sss.booking.repository.ClientRepository;
 import com.sss.booking.repository.SeatRepository;
 import com.sss.booking.repository.ShowRepository;
@@ -13,11 +11,15 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class ShowService {
+
+    @Autowired
+    private TheaterService theaterService;
 
     @Autowired
     private ShowRepository showRepository;

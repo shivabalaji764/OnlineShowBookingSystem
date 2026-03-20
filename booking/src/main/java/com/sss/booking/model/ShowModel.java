@@ -106,7 +106,6 @@ public class ShowModel {
         this.bookings = bookings;
     }
 
-
     @Override
     public String toString() {
         return "ShowModel{" +
