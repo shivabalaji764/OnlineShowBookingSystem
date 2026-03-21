@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.List;
 
 @Entity
 public class Booking {
@@ -26,7 +27,7 @@ public class Booking {
     private Users user;
 
     @OneToMany(mappedBy = "booking")
-    private ShowSeat[] seats;
+    private List<ShowSeat> seats;
 
     public long getBookingId() {
         return bookingId;
@@ -68,11 +69,11 @@ public class Booking {
         this.user = user;
     }
 
-    public ShowSeat[] getSeats() {
+    public List<ShowSeat> getSeats() {
         return seats;
     }
 
-    public void setSeats(ShowSeat[] seats) {
+    public void setSeats(List<ShowSeat> seats) {
         this.seats = seats;
     }
 
@@ -82,7 +83,7 @@ public class Booking {
                 "bookingId=" + bookingId +
                 ", bookingTime=" + bookingTime +
                 ", cost=" + cost +
-                ", seats=" + Arrays.toString(seats) +
+                ", seats=" + seats +
                 '}';
     }
 }

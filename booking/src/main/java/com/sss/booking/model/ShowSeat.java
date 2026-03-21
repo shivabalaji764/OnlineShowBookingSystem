@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 @Scope("prototype")
 @Entity
@@ -18,13 +20,16 @@ public class ShowSeat {
     private int seatColumn;
     private int status;
 
+    private LocalDateTime lockTime;
+    private Long userId;
+
     @ManyToOne
     @JoinColumn(name = "showId")
     @com.fasterxml.jackson.annotation.JsonIgnore
     private ShowModel showModel;
 
     @ManyToOne
-    @JoinColumn(name = "showSeats")
+    @JoinColumn(name = "booking")
     @com.fasterxml.jackson.annotation.JsonIgnore
     private Booking booking;
 
@@ -66,6 +71,22 @@ public class ShowSeat {
 
     public void setShowModel(ShowModel showModel) {
         this.showModel = showModel;
+    }
+
+    public LocalDateTime getLockTime() {
+        return lockTime;
+    }
+
+    public void setLockTime(LocalDateTime lockTime) {
+        this.lockTime = lockTime;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
     @Override

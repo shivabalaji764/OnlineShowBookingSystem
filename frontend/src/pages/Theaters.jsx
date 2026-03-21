@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-// import { data, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Theater(){
+    const navigate = useNavigate();
     const [theaters, setTheaters] = useState([]);
 
     useEffect(()=>{
@@ -26,7 +27,7 @@ export default function Theater(){
 
         if(response.ok){
             alert("theater selected");
-            return;
+            navigate("/seats");
         }else{
             console.log(response);
             alert("something went wrong");

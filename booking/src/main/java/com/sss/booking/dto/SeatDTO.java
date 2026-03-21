@@ -5,6 +5,10 @@ import java.util.List;
 public class SeatDTO {
     private List<List<Integer>> selectedSeats;
 
+    public void setSelectedSeats(List<List<Integer>> selectedSeats) {
+        this.selectedSeats = selectedSeats;
+    }
+
     public List<List<Integer>> getSelectedSeats() {
         return selectedSeats;
     }
