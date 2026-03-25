@@ -1,0 +1,220 @@
+.seats-page-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-bottom: 120px;
+    user-select: none;
+}
+
+.seats-header {
+    text-align: center;
+    padding: 30px 20px;
+    background: #ffffff;
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+.seats-header h2 {
+    margin: 0 0 10px 0;
+    color: #222;
+    font-size: 2rem;
+}
+
+.show-time, .screen-info {
+    margin: 0;
+    color: #666;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.seat-legend {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 50px;
+    background: #ffffff;
+    padding: 15px 40px;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.1rem;
+    color: #444;
+    font-weight: 500;
+}
+
+.seating-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 10px;
+    margin-bottom: 30px; 
+    width: 100%;
+    max-width: 1600px; 
+}
+
+.seat-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.row-label {
+    width: 40px;
+    text-align: right;
+    margin-right: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #888;
+}
+
+.seat {
+    width: 35px;
+    height: 35px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.15s ease-in-out;
+}
+
+.seat.walkway {
+    background: transparent;
+    border: none;
+    pointer-events: none;
+    width: 35px;
+}
+
+.seat.available {
+    background-color: #ffffff;
+    border: 2px solid #1ea83c;
+    color: #1ea83c;
+    cursor: pointer;
+}
+
+.seat.available:hover {
+    background-color: #e6f6ea;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(30, 168, 60, 0.15);
+}
+
+.seat.selected {
+    background-color: #1ea83c;
+    border-color: #1ea83c;
+    color: #ffffff;
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 8px 16px rgba(30, 168, 60, 0.3);
+}
+
+.seat.booked {
+    background-color: #e0e0e0;
+    border: 2px solid #ccc;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.seat.locked {
+    background-color: #f5f5f5;
+    border: 2px dashed #bbb;
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+.movie-screen-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.movie-screen {
+    width: 40%;
+    height: 30px;
+    background: linear-gradient(to bottom, #d4d4d4, #f8f9fa);
+    border-radius: 50% / 100% 100% 0 0; 
+    box-shadow: 0 -15px 30px rgba(0,0,0,0.05) inset, 0 20px 30px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+
+.movie-screen-container p {
+    color: #888;
+    font-size: 1rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.seats-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    z-index: 100;
+}
+
+.seats-footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 40px;
+}
+
+.price-info {
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.price-info strong {
+    font-size: 1.8rem;
+    color: #222;
+}
+
+.submit-btn {
+    background-color: #f84464;
+    color: #fff;
+    border: none;
+    padding: 16px 60px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(248, 68, 100, 0.3);
+}
+
+.submit-btn:hover:not(:disabled) {
+    background-color: #d93855;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(248, 68, 100, 0.4);
+}
+
+.submit-btn:disabled {
+    background-color: #e0e0e0;
+    color: #999;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}

@@ -1,0 +1,143 @@
+.theater-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #f2f5fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.date-strip-container {
+    width: 100%; 
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: center; 
+}
+
+.date-strip {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    max-width: 1200px; 
+    padding: 0 20px;
+    overflow-x: auto; 
+}
+
+.date-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    min-width: 50px;
+    color: #333;
+    transition: all 0.2s ease;
+}
+
+.date-card:hover {
+    color: #f84464; 
+}
+
+.date-card.active {
+    background-color: #f84464;
+    color: #ffffff;
+}
+
+.date-day { font-size: 0.8rem; font-weight: 500; }
+.date-number { font-size: 1.5rem; font-weight: bold; margin: 2px 0; }
+.date-month { font-size: 0.8rem; font-weight: 500; }
+
+.theater-list-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    padding: 20px;
+}
+
+.theater-list {
+    width: 100%;
+    max-width: 1200px; 
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.theater-row {
+    display: flex;
+    padding: 25px 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.theater-row:last-child {
+    border-bottom: none;
+}
+
+.theater-info {
+    flex: 0 0 35%; 
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.theater-icon {
+    font-size: 1.5rem;
+    background: #222;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.theater-name {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.4;
+}
+
+.showtime-list {
+    flex: 1; 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.showtime-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.showtime-btn {
+    background-color: #ffffff;
+    border: 1px solid #4caf50;
+    color: #4caf50;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.showtime-btn:hover {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+.cancellation-policy {
+    font-size: 0.75rem;
+    color: #777;
+}
+
+.no-theaters {
+    padding: 40px;
+    text-align: center;
+    color: #666;
+}

@@ -49,12 +49,15 @@ public class UserShowsController {
     }
 
     @GetMapping("/gettheaters")
-    public ResponseEntity<List<TheaterDTO>> getTheaters(HttpSession session){
+    public ResponseEntity<List<TheaterDTO>> getTheaters(
+            @RequestParam(name = "date", required = false) String date,
+            HttpSession session) {
         String showName = (String) session.getAttribute("showName");
-        if(session.getAttribute("userId")==null || showName==null){
+
+        if(session.getAttribute("userId") == null || showName == null){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
-        return ResponseEntity.ok(theaterService.getTheaters(showName));
+        return ResponseEntity.ok(theaterService.getTheaters(showName, date));
     }
 
     @PostMapping("/settheater")

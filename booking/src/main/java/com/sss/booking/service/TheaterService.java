@@ -11,6 +11,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -50,32 +51,41 @@ public class TheaterService {
         return newTheater.getTheaterId();
     }
 
+    public List<TheaterDTO> getTheaters(String showName, String dateStr) {
+        List<ShowModel> allShows = showRepository.findByShowName(showName);
 
-    public List<TheaterDTO> getTheaters(String showName){
-        List<ShowModel> showModels = showRepository.findByShowName(showName);
+        List<ShowModel> filteredShows = allShows;
 
-        List<Integer> theaterIds = showModels
-                .stream()
+        if (dateStr != null && !dateStr.isEmpty()) {
+            LocalDate selectedDate = LocalDate.parse(dateStr);
+
+            filteredShows = allShows.stream()
+                    .filter(show -> show.getShowDateAndTime().toLocalDate().equals(selectedDate))
+                    .toList();
+        }
+
+        List<Integer> theaterIds = filteredShows.stream()
                 .map(ShowModel::getTheaterId)
                 .distinct()
                 .toList();
 
-        List<String> theaterNames =  getTheaters(theaterIds);
+        if (theaterIds.isEmpty()) {
+            return new ArrayList<>();
+        }
 
-        System.out.println(theaterIds);
-        System.out.println(theaterNames);
+        List<String> theaterNames = getTheaters(theaterIds);
 
         List<TheaterDTO> theaters = new ArrayList<>();
-        TheaterDTO theaterDTO;
 
-        for(int i=0;i<theaterIds.size();i++){
-            theaterDTO = new TheaterDTO();
+        for (int i = 0; i < theaterIds.size(); i++) {
+            TheaterDTO theaterDTO = new TheaterDTO();
             theaterDTO.setTheaterName(theaterNames.get(i));
             theaterDTO.setShowDate(new ArrayList<>());
             theaterDTO.setShowTime(new ArrayList<>());
             theaterDTO.setShowId(new ArrayList<>());
-            for(ShowModel showModel : showModels){
-                if(showModel.getTheaterId()==theaterIds.get(i)){
+
+            for (ShowModel showModel : filteredShows) {
+                if (showModel.getTheaterId() == theaterIds.get(i)) {
                     theaterDTO.getShowDate().add(showModel.getShowDateAndTime().toLocalDate());
                     theaterDTO.getShowTime().add(showModel.getShowDateAndTime().toLocalTime());
                     theaterDTO.getShowId().add(showModel.getShowId());
@@ -86,6 +96,7 @@ public class TheaterService {
 
         return theaters;
     }
+
 
     public List<String> getTheaters(List<Integer> ids) {
 
