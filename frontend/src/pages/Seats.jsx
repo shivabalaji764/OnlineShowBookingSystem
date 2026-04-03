@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+
 import "../styles/Seats.css";
 
 export default function Seats() {
@@ -6,6 +9,7 @@ export default function Seats() {
     const [screen, setScreen] = useState({});
     const [show, setShow] = useState({});
     const [selectedSeats, setSelectedSeats] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch("http://localhost:5431/showseats/get", {
@@ -55,6 +59,7 @@ export default function Seats() {
 
         if (response.ok) {
             alert("Saved successfully!");
+            navigate("/confirm");
         } else if (response.status === 423) {
             alert("One or more seats are no longer available. Please refresh the page.");
         } else {

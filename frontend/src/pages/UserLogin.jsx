@@ -52,8 +52,8 @@ export default function UserLogin() {
 
         <div className="login-left-content">
           <div className="login-logo">
-            <div className="login-logo-icon">✦</div>
-            <span className="login-logo-name">YourApp</span>
+            <div className="login-logo-icon">🎬</div>
+            <span className="login-logo-name">ShowTime</span>
           </div>
 
           <h1 className="login-hero-title">
@@ -61,13 +61,13 @@ export default function UserLogin() {
             <span>beautifully simple.</span>
           </h1>
           <p className="login-hero-sub">
-            Sign in and get back to what matters most. Fast, secure, and designed for you.
+            Sign in to book show tickets online.
           </p>
 
           <div className="login-features">
             <div className="login-feature">
               <div className="login-feature-icon">🔒</div>
-              <span className="login-feature-text">End-to-end encrypted sessions</span>
+              <span className="login-feature-text">Secure</span>
             </div>
             <div className="login-feature">
               <div className="login-feature-icon">⚡</div>
@@ -75,7 +75,7 @@ export default function UserLogin() {
             </div>
             <div className="login-feature">
               <div className="login-feature-icon">🎯</div>
-              <span className="login-feature-text">Personalized dashboard on login</span>
+              <span className="login-feature-text">Don't waste your time in long Queues</span>
             </div>
           </div>
         </div>

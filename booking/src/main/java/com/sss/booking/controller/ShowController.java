@@ -30,7 +30,7 @@ public class ShowController {
         return ResponseEntity.ok(shows);
     }
 
-    @PostMapping("setshow")
+    @PostMapping("/setshow")
     public ResponseEntity<String> setShow(@RequestBody ShowModel request, HttpSession session){
         session.setAttribute("showName", request.getShowName());
         String showName = (String) session.getAttribute("showName");

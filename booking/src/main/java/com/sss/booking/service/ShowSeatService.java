@@ -1,12 +1,14 @@
 package com.sss.booking.service;
 
 import com.sss.booking.dto.ShowDetailsDTO;
+import com.sss.booking.model.Booking;
 import com.sss.booking.model.ScreenLayout;
 import com.sss.booking.model.ShowModel;
 import com.sss.booking.model.ShowSeat;
 import com.sss.booking.repository.ScreenRepository;
 import com.sss.booking.repository.ShowRepository;
 import com.sss.booking.repository.ShowSeatRepository;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -99,5 +101,15 @@ public class ShowSeatService {
         }
         System.out.println(showSeats);
         return true;
+    }
+
+    @Transactional
+    public void bookSeats(List<Integer> seats, Long userId, Booking booking) {
+        List<ShowSeat> showSeats = showSeatRepository.findAllById(seats);
+        for (ShowSeat seat: showSeats){
+            seat.setStatus(-1);
+            seat.setUserId(userId);
+            seat.setBooking(booking);
+        }
     }
 }

@@ -89,6 +89,14 @@ public class ShowSeat {
         this.userId = userId;
     }
 
+    public Booking getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Booking booking) {
+        this.booking = booking;
+    }
+
     @Override
     public String toString() {
         return "ShowSeats{" +

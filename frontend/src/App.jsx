@@ -12,6 +12,8 @@ import UserSignup from "./pages/UserSignup";
 import Home from "./pages/Home";
 import Theater from "./pages/Theaters";
 import Seats from "./pages/Seats";
+import Confirm from "./pages/Confirm";
+import MyBookings from "./pages/MyBookings"
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/theaters" element={<Theater />} />
         <Route path="/seats" element={<Seats />} />
+        <Route path="/confirm" element={<Confirm />} />
+        <Route path="/mybookings" element={<MyBookings/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/clientsignup" element={<Signup />} />
         <Route path="/clientshows" element={<Shows />} />

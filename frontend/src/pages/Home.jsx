@@ -29,7 +29,6 @@ export default function Home() {
         });
 
         if (response.ok) {
-            alert("Show Selected");
             navigate("/theaters");
         } else {
             alert("Something went wrong");
@@ -43,7 +42,15 @@ export default function Home() {
     return (
         <div className="home-container">
             <header className="home-header">
-                <h2>Available Shows</h2>
+                <div className="header-title-row">
+                    <h2>Available Shows</h2>
+                    <button 
+                        className="view-bookings-btn" 
+                        onClick={() => navigate("/mybookings")}
+                    >
+                        View My Bookings
+                    </button>
+                </div>
                 <input 
                     type="text" 
                     className="search-bar" 

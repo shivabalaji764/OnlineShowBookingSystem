@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/Signup.css";
 
-function Signup () {
-
+function Signup() {
     const navigate = useNavigate();
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ function Signup () {
 
     const handleSignup = async (e) => {
         e.preventDefault();
-        if(password!==confirmPassword){
+        if(password !== confirmPassword){
             alert("password doesn't match");
             return;
         }
@@ -23,7 +23,7 @@ function Signup () {
                 "Content-Type" : "application/json"
             },
             body: JSON.stringify({
-                name:name,
+                name: name,
                 password: password,
                 email: email,
                 mobile: mobile
@@ -32,59 +32,86 @@ function Signup () {
 
         if(response.ok){
             alert("Signup Successful");
-            navigate("/")
+            navigate("/login");
         }else{
             alert("something went wrong");
         }
     };
 
-    return(
-        <div>
-            <h2>SignUp form</h2>
-            <form onSubmit={handleSignup}>
-                <input
-                    type = "text"
-                    placeholder="Enter your name"
-                    value={name}
-                    onChange={(e)=>setName(e.target.value)}
-                />
-                <br />
+    return (
+        <div className="signup-wrapper">
+            <div className="signup-card">
+                <h2 className="signup-title">Create an Account</h2>
+                
+                <form className="signup-form" onSubmit={handleSignup}>
+                    <div className="input-group">
+                        <input
+                            className="signup-input"
+                            type="text"
+                            placeholder="Enter your name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                        />
+                    </div>
 
-                <input
-                    type = "email"
-                    placeholder="Enter email"
-                    value={email}
-                    onChange={(e)=>setEmail(e.target.value)}
-                />
-                <br />
+                    <div className="input-group">
+                        <input
+                            className="signup-input"
+                            type="email"
+                            placeholder="Enter email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
 
-                <input
-                    type = "password"
-                    placeholder="Enter Password"
-                    value={password}
-                    onChange={(e)=>setPassword(e.target.value)}
-                />
-                <br />
+                    <div className="input-group">
+                        <input
+                            className="signup-input"
+                            type="text"
+                            placeholder="Enter mobile number"
+                            value={mobile}
+                            onChange={(e) => setMobile(e.target.value)}
+                            required
+                        />
+                    </div>
 
-                <input
-                    type = "password"
-                    placeholder="Confirm Password"
-                    value={confirmPassword}
-                    onChange={(e)=>setConfirmPassword(e.target.value)}
-                />
-                <br />
+                    <div className="input-group">
+                        <input
+                            className="signup-input"
+                            type="password"
+                            placeholder="Enter Password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        />
+                    </div>
 
-                <input
-                    type = "text"
-                    placeholder="Enter mobile number"
-                    value={mobile}
-                    onChange={(e)=>setMobile(e.target.value)}
-                />
+                    <div className="input-group">
+                        <input
+                            className="signup-input"
+                            type="password"
+                            placeholder="Confirm Password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            required
+                        />
+                    </div>
 
-                <button type = "submit">Sign Up</button>
-                <br />
-                <button type = "button" onClick={()=>navigate("/")}>Login</button>
-            </form>
+                    <button className="btn-primary" type="submit">Sign Up</button>
+                    
+                    <div className="divider">or</div>
+                    
+                    <button 
+                        className="btn-secondary" 
+                        type="button" 
+                        onClick={() => navigate("/login")}
+                    >
+                        Already have an account? Login
+                    </button>
+                </form>
+            </div>
         </div>
     );
 }

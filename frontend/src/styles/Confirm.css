@@ -1,0 +1,43 @@
+.card {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-family: sans-serif;
+}
+
+.title {
+    text-align: center;
+}
+
+.infoBox {
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+.divider {
+    border: 0;
+    border-top: 1px solid #eee;
+    margin: 15px 0;
+}
+
+.totalPrice {
+    font-size: 1.2rem;
+    color: #d9534f;
+    margin-top: 15px;
+}
+
+.button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: bold;
+}
