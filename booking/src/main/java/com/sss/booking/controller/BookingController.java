@@ -50,10 +50,9 @@ public class BookingController {
         @SuppressWarnings("unchecked")
         List<Integer> seats = (List<Integer>) session.getAttribute("seats");
         Double cost = (Double) session.getAttribute("cost");
-
         Boolean confirmedBooking = bookingService.confirmBooking(userId, showId, seats, cost);
-        if(confirmedBooking) return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("error");
-
+        System.out.println(confirmedBooking);
+        if(!confirmedBooking) return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("error");
         return ResponseEntity.ok("Done");
     }
 

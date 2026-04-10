@@ -27,12 +27,19 @@ export default function MyBookings() {
     }, []);
 
     const isPastShow = (booking) => {
-        if (!booking.showDateAndTime) return false;
-        const showTimeMs = new Date(booking.showDateAndTime).getTime();
-        const durationMs = (booking.showLength || 0) * 60 * 1000;
-        const currentTimeMs = new Date().getTime();
-        return (showTimeMs + durationMs) < currentTimeMs;
-    };
+    if (!booking.showDateAndTime) return false;
+
+    const showTimeMs = new Date(booking.showDateAndTime).getTime();
+
+    const [hours, minutes, seconds] = booking.showLength.split(":").map(Number);
+
+    const durationMs =
+        (hours * 3600 + minutes * 60 + seconds) * 1000;
+
+    const currentTimeMs = new Date().getTime();
+
+    return (showTimeMs + durationMs) < currentTimeMs;
+};
 
     const extractDate = (dateString) => {
         if (!dateString) return "";

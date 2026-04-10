@@ -32,16 +32,32 @@ export default function Confirm() {
 
     const handleConfirm = async () => {
         try {
-            await fetch("http://localhost:5431/bookings/confirm",{
-                method:"POST",
-                credentials:"include"
+            const res = await fetch("http://localhost:5431/bookings/confirm", {
+                method: "POST",
+                credentials: "include"
             });
+
+            if (!res.ok) {
+                const errorMsg = await res.text();
+                throw new Error(errorMsg || "Booking failed");
+            }
+
             alert("Booking Confirmed! Enjoy the show.");
             navigate("/home");
+
         } catch (error) {
-            alert("There was an issue confirming your booking. "+error);
+            alert("There was an issue confirming your booking (probably timeout). " + error.message);
         }
     };
+
+    useEffect(() => {
+    const timer = setTimeout(() => {
+        alert("Session expired. Redirecting...");
+        navigate("/home");
+    }, 570000);
+
+    return () => clearTimeout(timer);
+}, [navigate]);
 
     if (isLoading) return <div>Loading your booking details...</div>;
     if (error) return <div>Error loading details: {error}</div>;

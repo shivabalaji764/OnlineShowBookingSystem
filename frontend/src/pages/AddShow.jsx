@@ -24,7 +24,7 @@ export default function AddShow() {
 
         if (response.ok) {
             alert("Show successfully finalized!");
-            navigate("/clientshows"); // Navigating back to the main shows dashboard
+            navigate("/clientshows");
         } else {
             alert("Something went wrong");
         }

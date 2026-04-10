@@ -73,6 +73,7 @@ public class BookingService {
         return details;
     }
 
+
     public Boolean confirmBooking(Long userId, Long showId, List<Integer> seats, Double cost) {
         Booking booking = new Booking();
 
@@ -93,6 +94,9 @@ public class BookingService {
             Optional<ShowSeat> showSeat = showSeatRepository.findById(id);
             if(showSeat.isEmpty()) return false;
             ShowSeat seat = showSeat.get();
+            if(seat.getLockTime().plusMinutes(9).plusSeconds(30).isBefore(LocalDateTime.now())){
+                return false;
+            }
             showSeats.add(seat);
         }
         booking.setSeats(showSeats);

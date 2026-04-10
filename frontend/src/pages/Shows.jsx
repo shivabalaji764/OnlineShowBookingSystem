@@ -13,7 +13,6 @@ function Shows() {
         })
             .then((data) => data.json())
             .then((data) => {
-                // Sort shows in descending order of time (newest/latest first)
                 const sortedShows = data.sort((a, b) => {
                     return new Date(b.showDateAndTime) - new Date(a.showDateAndTime);
                 });

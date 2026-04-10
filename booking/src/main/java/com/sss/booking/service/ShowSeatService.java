@@ -87,7 +87,7 @@ public class ShowSeatService {
 
     @Transactional
     public boolean lock(List<Integer> selectedSeats, long userId) {
-        List<ShowSeat> showSeats = showSeatRepository.findAllById(selectedSeats);
+        List<ShowSeat> showSeats = showSeatRepository.findAllByIdForUpdate(selectedSeats);
         System.out.println(showSeats);
         for(ShowSeat seat: showSeats){
             if(seat.getStatus()!=1){
